@@ -1,96 +1,43 @@
-/* पहले वाले CSS के ऊपर ये बदलाव करें */
-
-/* Pulse animation already added for live-tv-btn */
-
-/* News Cards hover zoom */
-.news-card {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  will-change: transform;
-}
-.news-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+/* --- Stock Market Section --- */
+.stock-market {
+    background-color: #f0f4f8;
+    padding: 20px;
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    box-shadow: 0 2px 6px rgba(42, 111, 219, 0.2);
 }
 
-/* Breaking news ticker smooth */
-.breaking-news span {
-  display: inline-block;
-  padding-left: 100%;
-  animation: ticker 20s linear infinite;
-  will-change: transform;
+.stock-market h3 {
+    color: #1a252f;
+    margin-bottom: 15px;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 6px;
+    font-family: var(--font-serif);
 }
 
-/* News headlines fade-in */
-.hero-story h1, 
-.local-grid h3 {
-  opacity: 0;
-  animation: fadeInUp 1s forwards;
-  animation-delay: 0.3s;
-  transform: translateY(20px);
-}
-.news-card:nth-child(2) h3 {
-  animation-delay: 0.5s;
-}
-.news-card:nth-child(3) h3 {
-  animation-delay: 0.7s;
-}
-.news-card:nth-child(4) h3 {
-  animation-delay: 0.9s;
-}
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.stock-market table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
 }
 
-/* Links underline grow on hover */
-a {
-  position: relative;
-  color: #2a6fdb;
-  text-decoration: none;
-}
-a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  left: 0;
-  bottom: -3px;
-  background-color: #d90000;
-  transition: width 0.3s ease;
-}
-a:hover::after {
-  width: 100%;
+.stock-market th, .stock-market td {
+    border: 1px solid #d0d7df;
+    padding: 10px;
+    text-align: left;
 }
 
-/* Footer color fade */
-footer p {
-  animation: colorShift 5s infinite alternate ease-in-out;
-}
-@keyframes colorShift {
-  0% { color: #bdc3c7; }
-  100% { color: #e74c3c; }
+.stock-market th {
+    background-color: #d7e1f2;
+    font-weight: bold;
 }
 
-/* Live TV Section Heading Animation */
-.live-tv-section h2 {
-  animation: pulseRed 2s infinite;
-}
-@keyframes pulseRed {
-  0%, 100% { color: #d90000; }
-  50% { color: #ff3b3b; }
+.stock-market .positive {
+    color: #28a745; /* Green */
+    font-weight: 700;
 }
 
-/* Smooth transition on nav links */
-nav ul li a {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Responsive tweaks */
-@media (max-width: 500px) {
-  nav ul li a {
-    padding: 10px 8px;
-    font-size: 1rem;
-  }
+.stock-market .negative {
+    color: #d90000; /* Red */
+    font-weight: 700;
 }
