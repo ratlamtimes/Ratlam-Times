@@ -1,440 +1,60 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ratlam Times | रतलाम की ताज़ा ख़बरें</title>
-  <style>
-    /* Reset */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0; padding: 0;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fafafa;
-      color: #222;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    a {
-      color: #2a6fdb;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #d90000;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 15px;
-      width: 100%;
-    }
-
-    /* Header */
-    header {
-      background: #2a6fdb;
-      color: white;
-      padding: 15px 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
-    .header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .logo {
-      font-family: 'Georgia', serif;
-      font-size: 1.8rem;
-      font-weight: 900;
-      letter-spacing: -1px;
-    }
-    .header-tools {
-      display: flex;
-      gap: 15px;
-    }
-    .header-tools a {
-      background: white;
-      color: #2a6fdb;
-      padding: 8px 16px;
-      border-radius: 4px;
-      font-weight: 600;
-      box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
-    }
-    .header-tools a.live-tv-btn {
-      background: #d90000;
-      color: white;
-      border: 2px solid white;
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-      70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-    }
-
-    /* Navigation */
-    nav {
-      background: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      border-bottom: 3px solid #d90000;
-      margin-bottom: 15px;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding: 10px 0;
-    }
-    nav ul li a {
-      font-weight: 700;
-      font-size: 1rem;
-      color: #333;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background 0.3s, color 0.3s;
-    }
-    nav ul li a:hover {
-      background: #2a6fdb;
-      color: white;
-    }
-
-    /* Breaking News Ticker */
-    .breaking-news {
-      background: #333;
-      color: white;
-      font-weight: 700;
-      padding: 10px 0;
-      text-align: center;
-      overflow: hidden;
-      position: relative;
-      font-size: 1rem;
-    }
-    .breaking-news span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: ticker 15s linear infinite;
-    }
-    @keyframes ticker {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-100%); }
-    }
-
-    /* Main Content */
-    .main-content {
-      display: flex;
-      gap: 30px;
-      padding-bottom: 30px;
-      flex-wrap: wrap;
-    }
-    .main-col {
-      flex: 3;
-      min-width: 320px;
-    }
-
-    /* Hero Story */
-    .hero-story {
-      background: white;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
-    }
-    .hero-story img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      object-fit: cover;
-      max-height: 400px;
-    }
-    .hero-story h1 {
-      font-family: 'Georgia', serif;
-      font-size: 2.5rem;
-      margin-bottom: 12px;
-      color: #1a252f;
-    }
-    .hero-story p {
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      color: #555;
-    }
-    .hero-story a.read-more {
-      color: #d90000;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    /* Local News Grid */
-    .local-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-    .news-card {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 3px 10px rgb(0 0 0 / 0.08);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .news-card:hover {
-      box-shadow: 0 10px 20px rgb(0 0 0 / 0.15);
-      transform: translateY(-5px);
-    }
-    .news-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-    .news-card h3 {
-      padding: 15px 15px 5px;
-      font-size: 1.2rem;
-      color: #1a252f;
-    }
-    .news-card p {
-      padding: 0 15px 15px;
-      color: #666;
-      flex-grow: 1;
-    }
-
-    /* Live TV Section */
-    .live-tv-section {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      padding: 20px;
-      margin-bottom: 40px;
-    }
-    .live-tv-section h2 {
-      margin-bottom: 15px;
-      font-family: 'Georgia', serif;
-      color: #d90000;
-    }
-    .live-tv-container {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 aspect ratio */
-      height: 0;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    .live-tv-container iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Sidebar */
-    aside.sidebar {
-      flex: 1;
-      min-width: 280px;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .mandi-bhav {
-      background: #ebf5ee;
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #c4dbce;
-      box-shadow: 0 2px 8px rgb(40 167 69 / 0.15);
-    }
-    .mandi-bhav h3 {
-      color: #28a745;
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-    }
-    .mandi-bhav table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 1rem;
-    }
-    .mandi-bhav th, .mandi-bhav td {
-      border: 1px solid #d4e3d4;
-      padding: 10px;
-      text-align: left;
-    }
-    .mandi-bhav th {
-      background: #c4dbce;
-      font-weight: 700;
-    }
-    .mandi-bhav p {
-      text-align: right;
-      margin-top: 10px;
-    }
-
-    /* Trending Stories */
-    .trending-list {
-      list-style: none;
-    }
-    .trending-list li {
-      margin-bottom: 12px;
-      border-bottom: 1px dotted #ccc;
-      padding-bottom: 8px;
-    }
-    .trending-list li:last-child {
-      border-bottom: none;
-    }
-
-    /* Footer */
-    footer {
-      background: #2c3e50;
-      color: #bdc3c7;
-      text-align: center;
-      padding: 25px 15px;
-      font-size: 0.9rem;
-      margin-top: auto;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .main-content {
-        flex-direction: column;
-      }
-      aside.sidebar {
-        flex-direction: row;
-        overflow-x: auto;
-        gap: 15px;
-      }
-      aside.sidebar > * {
-        min-width: 280px;
-        flex: none;
-      }
-    }
-    @media (max-width: 500px) {
-      nav ul {
-        flex-direction: column;
-        gap: 10px;
-      }
-      .header-tools {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ratlam Times | Your Local News & Market Updates</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header>
-    <div class="container header-inner">
-      <div class="logo">Ratlam Times (रतलाम टाइम्स)</div>
-      <div class="header-tools">
-        <a href="#" class="live-tv-btn">🔴 LIVE TV</a>
-        <a href="#">Login</a>
-      </div>
-    </div>
-  </header>
+    <header>
+        <div class="container header-inner">
+            <div class="logo">Ratlam Times (रतलाम टाइम्स)</div>
 
-  <nav>
-    <ul class="container">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Ratlam Local (स्थानीय)</a></li>
-      <li><a href="#">MP Politics</a></li>
-      <li><a href="#">Business & Market</a></li>
-      <li><a href="#">Sports (खेल)</a></li>
-      <li><a href="#">Opinion (राय)</a></li>
-    </ul>
-  </nav>
-
-  <div class="breaking-news">
-    <span>⚡ ताज़ा ख़बर: Mandi Bhav updates now live! | आज कलेक्टर की बड़ी घोषणा...</span>
-  </div>
-
-  <div class="container main-content">
-
-    <main class="main-col">
-
-      <section class="hero-story">
-        <img src="https://via.placeholder.com/1200x500/2a6fdb/ffffff?text=Featured+Story" alt="Featured Story" />
-        <h1>Ratlam Collector Announces New Public Infrastructure Project</h1>
-        <p><strong>RATLAM, Dec 8:</strong> The District Collector today unveiled a major plan to upgrade the city's water supply and road network, promising completion within the next 18 months...</p>
-        <a href="#" class="read-more">Read Full Article »</a>
-      </section>
-
-      <h2>📰 Ratlam Local (रतलाम की ख़बरें)</h2>
-      <section class="local-grid">
-        <article class="news-card">
-          <img src="https://via.placeholder.com/400x250?text=Crime+Report" alt="Crime" />
-          <h3>Chain-Snatching Incident Reported Near Station Road</h3>
-          <p>Police are investigating a rise in small-scale crime affecting commuters near the station...</p>
-        </article>
-        <article class="news-card">
-          <img src="https://via.placeholder.com/400x250?text=Civic+News" alt="Civic" />
-          <h3>Traffic Diversions Announced for Local Mela</h3>
-          <p>Plan your route carefully this week due to the Annual Festival and related traffic diversions...</p>
-        </article>
-        <article class="news-card">
-          <img src="https://via.placeholder.com/400x250?text=Health+Camp" alt="Health" />
-          <h3>Free Eye Check-up Camp Organized in Industrial Area</h3>
-          <p>Thousands benefitted from the local NGO initiative offering free tests and spectacles.</p>
-        </article>
-      </section>
-
-      <section class="live-tv-section">
-        <h2>📺 Live TV - Ratlam Times</h2>
-        <div class="live-tv-container">
-          <iframe
-            src="https://www.youtube.com/embed/Z4JhhQ5qp-0?autoplay=0&mute=0"
-            title="Ratlam Times Live TV"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+            <div class="header-tools">
+                <a href="#" class="live-tv-btn">🔴 LIVE TV</a>
+                <a href="#">Login</a>
+            </div>
         </div>
-      </section>
+    </header>
 
-    </main>
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Ratlam Local (स्थानीय)</a></li>
+                <li><a href="#">MP Politics</a></li>
+                <li><a href="#">Business & Market</a></li>
+                <li><a href="#">Sports (खेल)</a></li>
+                <li><a href="#">Opinion (राय)</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <aside class="sidebar">
+    <div class="breaking-news">
+        <div class="container">
+            ⚡ ताज़ा ख़बर: Stock Market Updates Now Live! | आज कलेक्टर की बड़ी घोषणा...
+        </div>
+    </div>
 
-      <section class="mandi-bhav">
-        <h3>💰 Mandi Bhav (आज के बाज़ार भाव)</h3>
-        <table>
-          <thead>
-            <tr><th>Commodity</th><th>Avg. Price (₹/Qt)</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>गेहूँ (Wheat)</td><td>2,450 ⬆️</td></tr>
-            <tr><td>सोयाबीन (Soybean)</td><td>4,900 ⬇️</td></tr>
-            <tr><td>चना (Gram)</td><td>5,200 ➖</td></tr>
-          </tbody>
-        </table>
-        <p><a href="#" class="view-full">View Full Mandi List »</a></p>
-      </section>
+    <div class="container main-content">
+        
+        <div class="main-col">
 
-      <section>
-        <h3>🔥 Trending Stories</h3>
-        <ul class="trending-list">
-          <li><a href="#">Mayor responds to property tax hike criticism</a></li>
-          <li><a href="#">The top 5 places to eat Ratlami Sev this week</a></li>
-          <li><a href="#">Local cricket team heads to state finals</a></li>
-        </ul>
-      </section>
+            <section class="hero-story">
+                <img src="https://via.placeholder.com/1200x500/2a6fdb/ffffff?text=Featured+Story" alt="Featured Story" />
+                <h1>Ratlam Collector Announces New Public Infrastructure Project</h1>
+                <p><strong>RATLAM, Dec 8:</strong> The District Collector today unveiled a major plan to upgrade the city's water supply and road network, promising completion within the next 18 months...</p>
+                <a href="#" class="read-more">Read Full Article »</a>
+            </section>
 
-    </aside>
-
-  </div>
-
-  <footer>
-    <p>© 2025 Ratlam Times. All rights reserved. | Contact | About Us | Privacy Policy</p>
-  </footer>
-
-</body>
-</html>
-
+            <h2>📰 Ratlam Local (रतलाम की ख़बरें)</h2>
+            <section class="local-grid">
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/400x250?text=Crime+Report" alt="Crime" />
+                    <h3>Chain-Snatching Incident Reported Near Station Road</h3>
+                    <p>Police are investigating a rise in small-scale crime affecting commuters near the station...</p>
+                </article>
+                <article class="news-card">
+                    <img src
