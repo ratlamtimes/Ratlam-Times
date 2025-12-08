@@ -1,43 +1,172 @@
-/* --- Stock Market Section --- */
-.stock-market {
-    background-color: #f0f4f8;
+/* सामान्य रीसेट और फ़ॉन्ट सेटिंग */
+body {
+    font-family: 'Arial', 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* हल्का ग्रे बैकग्राउंड */
+    color: #333;
+    line-height: 1.6; /* पढ़ने में आसानी के लिए लाइन स्पेसिंग */
+}
+
+/* 1. हेडर (Header) स्टाइलिंग */
+header {
+    background-color: #002244; /* गहरा नीला */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* हल्का शैडो */
+}
+
+.logo {
+    font-family: 'Playfair Display', serif; /* हेडलाइन्स के लिए सेरिफ़ फ़ॉन्ट */
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #FFD700; /* सुनहरा/पीला (Gold/Yellow) */
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0 18px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #FFD700; /* होवर पर सुनहरा रंग */
+}
+
+/* 2. मुख्य सामग्री और लेआउट */
+.main-content {
     padding: 20px;
-    border-radius: 6px;
-    font-family: var(--font-sans);
-    box-shadow: 0 2px 6px rgba(42, 111, 219, 0.2);
+    max-width: 1200px;
+    margin: 20px auto;
 }
 
-.stock-market h3 {
-    color: #1a252f;
-    margin-bottom: 15px;
-    border-bottom: 3px solid var(--primary-color);
-    padding-bottom: 6px;
-    font-family: var(--font-serif);
-}
-
-.stock-market table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95em;
-}
-
-.stock-market th, .stock-market td {
-    border: 1px solid #d0d7df;
-    padding: 10px;
-    text-align: left;
-}
-
-.stock-market th {
-    background-color: #d7e1f2;
+/* 3. ब्रेकिंग न्यूज़ स्टाइलिंग */
+.breaking-news {
+    background-color: #ffffff;
+    padding: 12px 20px;
+    margin-bottom: 30px;
+    border-left: 6px solid #e74c3c; /* ब्रेकिंग के लिए लाल रंग का इस्तेमाल */
     font-weight: bold;
+    font-size: 1.1em;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.stock-market .positive {
-    color: #28a745; /* Green */
-    font-weight: 700;
+/* 4. मुख्य स्टोरी स्टाइलिंग */
+.featured-story {
+    margin-bottom: 40px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
 }
 
-.stock-market .negative {
-    color: #d90000; /* Red */
-    font-weight: 700;
+.featured-story h2 {
+    color: #002244;
+    font-family: 'Playfair Display', serif;
+    margin-top: 0;
+    font-size: 2em;
+}
+
+.featured-story img {
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+/* 5. ग्रिड लेआउट (समाचार कार्ड) */
+h2 {
+    color: #002244;
+    border-bottom: 3px solid #FFD700;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* रिस्पॉन्सिव 3 कॉलम */
+    gap: 30px;
+}
+
+.story-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 4px;
+    overflow: hidden; /* इमेज को कार्ड के अंदर रखने के लिए */
+}
+
+.story-card:hover {
+    transform: translateY(-5px); /* होवर पर हल्का ऊपर उठाना */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.story-card img {
+    width: 100%;
+    height: 200px; /* इमेज की निश्चित ऊँचाई */
+    object-fit: cover;
+    display: block;
+}
+
+.story-card h3 {
+    color: #002244;
+    padding: 10px 15px 5px;
+    font-size: 1.25em;
+    margin: 0;
+}
+
+.story-card p {
+    padding: 0 15px 15px;
+    margin: 0;
+}
+
+.story-card a {
+    color: #1a73e8; /* लिंक के लिए नीला रंग */
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    padding: 0 15px 15px;
+}
+
+/* 6. फुटर (Footer) स्टाइलिंग */
+footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* 7. मोबाइल रिस्पॉन्सिवनेस (बेहतर लुक के लिए) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    nav ul li a {
+        padding: 5px 10px;
+    }
+    .story-grid {
+        grid-template-columns: 1fr; /* मोबाइल पर सिंगल कॉलम */
+    }
 }
