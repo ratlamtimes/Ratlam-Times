@@ -1,138 +1,126 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ratlam Times - रतलाम के विश्वसनीय समाचार</title>
-    <link rel="stylesheet" href="style.css"> 
+    <title>Ratlam Times - Latest News</title>
     <style>
-        /* यहाँ बुनियादी CSS स्टाइलिंग दी गई है, इसे 'style.css' में ले जाना बेहतर है */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            color: #333;
         }
         header {
-            background-color: #002244; /* गहरा नीला - Ratlam Times रंग योजना */
+            background-color: #333;
             color: white;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 10px;
+            text-align: center;
         }
-        .logo {
-            font-size: 2em;
-            font-weight: bold;
-            color: #FFD700; /* सुनहरा/पीला हाइलाइट */
-            text-decoration: none;
+        nav {
+            background-color: #444;
+            padding: 10px;
         }
         nav ul {
-            list-style: none;
+            list-style-type: none;
             margin: 0;
             padding: 0;
-            display: flex;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
         }
         nav ul li a {
             color: white;
             text-decoration: none;
-            padding: 0 15px;
-            font-weight: 500;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         .main-content {
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
         }
-        .breaking-news {
-            background-color: #e6e6e6;
+        .news-article {
+            flex: 1;
+            margin: 10px;
             padding: 10px;
-            margin-bottom: 20px;
-            border-left: 5px solid #FFD700;
+            border-bottom: 1px solid #ddd;
         }
-        .story-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 कॉलम ग्रिड */
-            gap: 20px;
-        }
-        .story-card {
-            background-color: white;
-            border: 1px solid #ddd;
-            padding: 15px;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-        }
-        .story-card h3 {
-            color: #002244;
+        .sidebar {
+            flex: 0 0 300px;
+            margin: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
         }
         footer {
             background-color: #333;
             color: white;
             text-align: center;
             padding: 10px;
-            margin-top: 30px;
+            margin-top: 20px;
+        }
+        .breaking-news {
+            background-color: #ff0000;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-
     <header>
-        <a href="#" class="logo">Ratlam Times</a>
-        <nav>
-            <ul>
-                <li><a href="#">होम</a></li>
-                <li><a href="#">रतलाम शहर</a></li>
-                <li><a href="#">राजनीति</a></li>
-                <li><a href="#">खेल</a></li>
-                <li><a href="#">संपादकीय</a></li>
-                <li><a href="#">खोज</a></li>
-            </ul>
-        </nav>
+        <h1>Ratlam Times</h1>
+        <p>Your Source for Local News</p>
     </header>
-
-    <div class="main-content">
-
-        <section class="breaking-news">
-            **ब्रेकिंग न्यूज़:** रतलाम में आज कलेक्टर ने नए विकास कार्यों की घोषणा की।
-        </section>
-
-        <section class="featured-story">
-            <h2>मुख्य खबर: राज्य में नई शिक्षा नीति लागू - जानें प्रभाव</h2>
-            <img src="featured_image.jpg" alt="मुख्य खबर की तस्वीर" style="width: 100%; height: auto;">
-            <p>विवरण: शिक्षा मंत्री ने घोषणा की है कि अगले सत्र से...</p>
-            <a href="#">पूरी खबर पढ़ें →</a>
-        </section>
-        
-        <hr>
-
-        <h2>ताज़ा खबरें</h2>
-        <section class="story-grid">
-            
-            <div class="story-card">
-                <img src="news1.jpg" alt="खबर 1" style="width: 100%; height: 150px; object-fit: cover;">
-                <h3>रतलाम में यातायात नियमों का सख्ती से पालन</h3>
-                <p>यातायात पुलिस ने शहर के प्रमुख चौराहों पर... <a href="#">और पढ़ें</a></p>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Politics</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">Entertainment</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="breaking-news">Breaking News: Latest Updates from Ratlam</div>
+        <div class="main-content">
+            <div class="news-article">
+                <h2>Article Title 1</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <a href="#">Read More</a>
             </div>
-
-            <div class="story-card">
-                <img src="news2.jpg" alt="खबर 2" style="width: 100%; height: 150px; object-fit: cover;">
-                <h3>स्थानीय व्यापार: स्टार्टअप्स को मिला नया प्रोत्साहन</h3>
-                <p>चैंबर ऑफ कॉमर्स ने नए उद्यमियों के लिए... <a href="#">और पढ़ें</a></p>
+            <div class="news-article">
+                <h2>Article Title 2</h2>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <a href="#">Read More</a>
             </div>
-
-            <div class="story-card">
-                <img src="news3.jpg" alt="खबर 3" style="width: 100%; height: 150px; object-fit: cover;">
-                <h3>क्रिकेट: रतलाम टीम ने जीता इंटर-सिटी टूर्नामेंट</h3>
-                <p>शानदार प्रदर्शन के बाद हमारी टीम ने फाइनल मैच... <a href="#">और पढ़ें</a></p>
+            <div class="sidebar">
+                <h3>Latest Headlines</h3>
+                <ul>
+                    <li>Headline 1</li>
+                    <li>Headline 2</li>
+                    <li>Headline 3</li>
+                </ul>
+                <h3>Weather</h3>
+                <p>Sunny, 30°C</p>
             </div>
-            
-        </section>
-
+        </div>
     </div>
-
     <footer>
-        <p>&copy; 2025 Ratlam Times. सर्वाधिकार सुरक्षित। | हमसे संपर्क करें</p>
+        <p>&copy; 2023 Ratlam Times. All rights reserved.</p>
     </footer>
-
+    <script>
+        // Simple JS for interactivity, e.g., toggle breaking news
+        document.querySelector('.breaking-news').addEventListener('click', function() {
+            this.style.display = 'none';
+        });
+    </script>
 </body>
 </html>
