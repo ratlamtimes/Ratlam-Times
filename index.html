@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ratlam Times - रतलाम के विश्वसनीय समाचार</title>
-    <link rel="stylesheet" href="style.css"> 
+    <title>पुणे–सांगानेर स्पेशल ट्रेन रतलाम से होकर चलेगी | Ratlam Times</title>
+
+    <meta name="description" content="शीतकालीन छुट्टियों में यात्रियों की भीड़ को देखते हुए रेलवे ने पुणे-सांगानेर के बीच स्पेशल ट्रेन चलाने की घोषणा की है। जानें तारीखें, समय, रूट और रतलाम पर स्टॉपेज।">
+
     <style>
-        /* यहाँ बुनियादी CSS स्टाइलिंग दी गई है, इसे 'style.css' में ले जाना बेहतर है */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
+            background: #f3f4f6;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            color: #222;
         }
         header {
-            background-color: #002244; /* गहरा नीला - Ratlam Times रंग योजना */
+            background-color: #002244;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -25,114 +26,143 @@
         .logo {
             font-size: 2em;
             font-weight: bold;
-            color: #FFD700; /* सुनहरा/पीला हाइलाइट */
+            color: #FFD700;
             text-decoration: none;
         }
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 0 15px;
-            font-weight: 500;
-        }
-        .main-content {
-            padding: 20px;
-            max-width: 1200px;
+        nav a { color: white; margin-left: 15px; text-decoration: none; }
+        .container {
+            max-width: 900px;
             margin: auto;
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
         }
-        .breaking-news {
-            background-color: #e6e6e6;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-left: 5px solid #FFD700;
-        }
-        .story-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 कॉलम ग्रिड */
-            gap: 20px;
-        }
-        .story-card {
-            background-color: white;
-            border: 1px solid #ddd;
-            padding: 15px;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-        }
-        .story-card h3 {
+        h1 {
             color: #002244;
+            font-size: 28px;
+            margin-bottom: 10px;
         }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
+        h2 {
+            color: #003366;
+            margin-top: 25px;
+        }
+        .highlight {
+            background: #fff3cd;
             padding: 10px;
-            margin-top: 30px;
+            border-left: 6px solid #ffca2c;
+            margin: 20px 0;
+        }
+        ul { line-height: 1.8; }
+        footer {
+            background: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 8px 12px;
+            background: #002244;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        img.article-img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 15px 0;
         }
     </style>
 </head>
+
 <body>
 
-    <header>
-        <a href="#" class="logo">Ratlam Times</a>
-        <nav>
-            <ul>
-                <li><a href="#">होम</a></li>
-                <li><a href="#">रतलाम शहर</a></li>
-                <li><a href="#">राजनीति</a></li>
-                <li><a href="#">खेल</a></li>
-                <li><a href="#">संपादकीय</a></li>
-                <li><a href="#">खोज</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <a href="index.html" class="logo">Ratlam Times</a>
+    <nav>
+        <a href="#">होम</a>
+        <a href="#">रतलाम</a>
+        <a href="#">राज्य</a>
+        <a href="#">रेलवे</a>
+        <a href="#">खोज</a>
+    </nav>
+</header>
 
-    <div class="main-content">
+<div class="container">
 
-        <section class="breaking-news">
-            **ब्रेकिंग न्यूज़:** रतलाम में आज कलेक्टर ने नए विकास कार्यों की घोषणा की।
-        </section>
+    <a href="index.html" class="back-btn">← न्यूज़ पर वापस जाएँ</a>
 
-        <section class="featured-story">
-            <h2>मुख्य खबर: राज्य में नई शिक्षा नीति लागू - जानें प्रभाव</h2>
-            <img src="https://historical-green-yi2ylbdmpx-tqhl5lygmw.edgeone.dev/Screenshot%202025-12-08%20200913.png" alt="मुख्य खबर की तस्वीर" style="width: 100%; height: auto;">
-            <p>विवरण: शिक्षा मंत्री ने घोषणा की है कि अगले सत्र से...</p>
-            <a href="#">पूरी खबर पढ़ें →</a>
-        </section>
-        
-        <hr>
+    <h1>पुणे–सांगानेर स्पेशल ट्रेन चलेगी, रतलाम से होकर गुजरेगी; यात्रियों को बड़ी राहत</h1>
 
-        <h2>ताज़ा खबरें</h2>
-        <section class="story-grid">
-            
-            <div class="story-card">
-                <img src="news1.jpg" alt="खबर 1" style="width: 100%; height: 150px; object-fit: cover;">
-                <h3>रतलाम में यातायात नियमों का सख्ती से पालन</h3>
-                <p>यातायात पुलिस ने शहर के प्रमुख चौराहों पर... <a href="#">और पढ़ें</a></p>
-            </div>
+    <p><strong>Ratlam Times | रेलवे अपडेट</strong></p>
 
-            <div class="story-card">
-                <img src="news2.jpg" alt="खबर 2" style="width: 100%; height: 150px; object-fit: cover;">
-                <h3>स्थानीय व्यापार: स्टार्टअप्स को मिला नया प्रोत्साहन</h3>
-                <p>चैंबर ऑफ कॉमर्स ने नए उद्यमियों के लिए... <a href="#">और पढ़ें</a></p>
-            </div>
+    <img src="train.jpg" alt="Special Train Image" class="article-img">
 
-            <div class="story-card">
-                <img src="news3.jpg" alt="खबर 3" style="width: 100%; height: 150px; object-fit: cover;">
-                <h3>क्रिकेट: रतलाम टीम ने जीता इंटर-सिटी टूर्नामेंट</h3>
-                <p>शानदार प्रदर्शन के बाद हमारी टीम ने फाइनल मैच... <a href="#">और पढ़ें</a></p>
-            </div>
-            
-        </section>
+    <p>
+        शीतकालीन छुट्टियों और त्योहारों के दौरान बढ़ती यात्रियों की भीड़ को देखते हुए रेलवे ने 
+        <strong>पुणे से सांगानेर के बीच स्पेशल ट्रेन चलाने का फैसला किया है</strong>। 
+        यह ट्रेन रतलाम मंडल से होकर गुजरेगी और दोनों दिशाओं में कुल <strong>तीन–तीन फेरे</strong> लगाएगी।
+    </p>
 
+    <div class="highlight">
+        ✔ इस स्पेशल ट्रेन के चलने से यात्रियों को अत्यधिक भीड़ के दौरान बड़ी राहत मिलेगी।
     </div>
 
-    <footer>
-        <p>&copy; 2025 Ratlam Times. सर्वाधिकार सुरक्षित। | हमसे संपर्क करें</p>
-    </footer>
+    <h2>पुणे → सांगानेर स्पेशल ट्रेन (01405)</h2>
+    <p><strong>चलने की तिथियाँ:</strong> 19 दिसंबर, 26 दिसंबर 2025 और 02 जनवरी 2026 (शुक्रवार)</p>
+    <p><strong>पुणे से प्रस्थान:</strong> सुबह 9:45 बजे</p>
+    <p><strong>सांगानेर आगमन:</strong> अगली सुबह 6:45 बजे</p>
+
+    <p><strong>रतलाम स्टेशन समय:</strong></p>
+    <ul>
+        <li>आगमन: रात 10:35 बजे (22:35)</li>
+        <li>प्रस्थान: रात 10:45 बजे (22:45)</li>
+    </ul>
+
+    <h2>सांगानेर → पुणे स्पेशल ट्रेन (01406)</h2>
+    <p><strong>चलने की तिथियाँ:</strong> 20 दिसंबर, 27 दिसंबर 2025 और 03 जनवरी 2026 (शनिवार)</p>
+    <p><strong>सांगानेर से प्रस्थान:</strong> सुबह 11:35 बजे</p>
+    <p><strong>पुणे आगमन:</strong> अगली सुबह 9:30 बजे</p>
+
+    <p><strong>रतलाम स्टेशन समय:</strong></p>
+    <ul>
+        <li>आगमन: शाम 7:10 बजे (19:10)</li>
+        <li>प्रस्थान: शाम 7:20 बजे (19:20)</li>
+    </ul>
+
+    <h2>इन स्टेशनों पर मिलेगा स्टॉपेज</h2>
+    <ul>
+        <li>लोनावला</li>
+        <li>कल्याण</li>
+        <li>भिवंडी रोड</li>
+        <li>बोईसर</li>
+        <li>पालघर</li>
+        <li>वापी</li>
+        <li>वलसाड</li>
+        <li>सूरत</li>
+        <li>अंकलेश्वर</li>
+        <li>वडोदरा</li>
+        <li>रतलाम</li>
+        <li>भवानी मंडी</li>
+        <li>रामगंज मंडी</li>
+        <li>कोटा</li>
+        <li>सवाई माधोपुर</li>
+    </ul>
+
+    <p>
+        रेलवे ने यात्रियों से अपील की है कि वे यात्रा से पहले अपनी टिकटें समय रहते बुक कर लें, 
+        क्योंकि छुट्टियों के दौरान सीटों की मांग काफी बढ़ जाती है।
+    </p>
+
+</div>
+
+<footer>
+    © 2025 Ratlam Times | सभी अधिकार सुरक्षित
+</footer>
 
 </body>
 </html>
