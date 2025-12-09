@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ratlam Times - रतलाम की ताज़ा खबरें</title>
 
     <style>
@@ -12,6 +12,8 @@
             background: #f4f4f4;
             color: #222;
         }
+
+        /* हेडर */
         header {
             background: #002244;
             color: white;
@@ -19,33 +21,64 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative; /* लोगो absolute के लिए */
         }
-        .logo {
-            font-size: 26px;
-            font-weight: bold;
-            color: #FFD700;
-            text-decoration: none;
+
+        /* नेविगेशन को दो हिस्सों में बांटना */
+        nav.left-nav,
+        nav.right-nav {
+            display: flex;
+            gap: 15px;
         }
-        nav a {
+
+        nav.left-nav a,
+        nav.right-nav a {
             color: white;
             text-decoration: none;
-            margin-left: 15px;
             font-size: 15px;
+            font-weight: 600;
+            padding: 0 8px;
+            transition: color 0.3s ease;
         }
+
+        nav.left-nav a:hover,
+        nav.right-nav a:hover {
+            color: #FFD700;
+        }
+
+        /* लोगो बीच में */
+        .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 70px; /* आप अपनी पसंद से बदल सकते हैं */
+            display: block;
+        }
+
+        /* कंटेनर */
         .container {
             max-width: 1100px;
             margin: auto;
             padding: 20px;
         }
+
         h2 {
             margin-top: 30px;
             color: #002244;
         }
+
         .news-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
+
         .news-card {
             background: white;
             border-radius: 8px;
@@ -53,21 +86,25 @@
             box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
             border: 1px solid #ddd;
         }
+
         .news-card img {
             width: 100%;
             height: 160px;
             object-fit: cover;
         }
+
         .news-card h3 {
             margin: 10px;
             font-size: 18px;
             color: #002244;
         }
+
         .news-card p {
             margin: 10px;
             font-size: 14px;
             line-height: 1.5;
         }
+
         .news-card a {
             display: block;
             background: #002244;
@@ -78,6 +115,7 @@
             border-top: 1px solid #001933;
             font-size: 14px;
         }
+
         footer {
             background: #222;
             color: #ddd;
@@ -85,19 +123,49 @@
             padding: 12px;
             margin-top: 35px;
         }
-    </style>
 
+        /* मोबाइल रेस्पॉन्सिव */
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 15px 10px;
+                position: relative;
+            }
+            nav.left-nav,
+            nav.right-nav {
+                flex-basis: 100%;
+                justify-content: center;
+                margin: 10px 0;
+                gap: 15px;
+                order: 2;
+            }
+            .logo {
+                position: relative;
+                left: auto;
+                transform: none;
+                order: 1;
+                margin-bottom: 10px;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <header>
-    <a href="index.html" class="logo">
-    <img src="https://raw.githubusercontent.com/ratlamtimes/Ratlam-Times/main/LOGO.jpg" alt="Ratlam Times" style="height: 100px;">
-
-</a>
-    <nav>
+    <nav class="left-nav">
         <a href="index.html">होम</a>
         <a href="#">रतलाम</a>
+    </nav>
+
+    <a href="index.html" class="logo">
+        <img src="https://raw.githubusercontent.com/ratlamtimes/Ratlam-Times/main/LOGO.jpg" alt="Ratlam Times" />
+    </a>
+
+    <nav class="right-nav">
         <a href="#">राज्य</a>
         <a href="#">रेलवे</a>
         <a href="#">राजनीति</a>
@@ -105,11 +173,10 @@
 </header>
 
 <div class="container">
-
     <h2>मुख्य खबरें</h2>
 
     <div class="news-card" style="margin-bottom: 25px;">
-        <img src="https://raw.githubusercontent.com/ratlamtimes/Ratlam-Times/main/train.jpg">
+        <img src="https://raw.githubusercontent.com/ratlamtimes/Ratlam-Times/main/train.jpg" alt="Train Image">
         <h3>शीतकालीन छुट्टियों में पुणे–सांगानेर स्पेशल ट्रेन रतलाम से होकर चलेगी</h3>
         <p>
             यात्रियों की बढ़ती भीड़ को देखते हुए रेलवे ने पुणे–सांगानेर के बीच स्पेशल ट्रेन चलाने का निर्णय लिया है।
@@ -118,34 +185,30 @@
         <a href="news.html">खबर पढ़ें →</a>
     </div>
 
-
     <h2>ताज़ा खबरें</h2>
 
     <div class="news-grid">
-
         <div class="news-card">
-            <img src="news1.jpg">
+            <img src="news1.jpg" alt="News 1">
             <h3>रतलाम में यातायात नियमों का सख्ती से पालन</h3>
             <p>शहर के प्रमुख चौराहों पर पुलिस ने चेकिंग अभियान तेज किया...</p>
             <a href="#">और पढ़ें +</a>
         </div>
 
         <div class="news-card">
-            <img src="news2.jpg">
+            <img src="news2.jpg" alt="News 2">
             <h3>स्थानीय व्यापार: स्टार्टअप्स को नया प्रोत्साहन</h3>
             <p>नए उद्यमियों के लिए योजनाओं की घोषणा की गई...</p>
             <a href="#">और पढ़ें +</a>
         </div>
 
         <div class="news-card">
-            <img src="news3.jpg">
+            <img src="news3.jpg" alt="News 3">
             <h3>क्रिकेट: रतलाम टीम ने जीता इंटर-सिटी टूर्नामेंट</h3>
             <p>शानदार प्रदर्शन करते हुए रतलाम ने फाइनल में जीत दर्ज की...</p>
             <a href="#">और पढ़ें +</a>
         </div>
-
     </div>
-
 </div>
 
 <footer>
