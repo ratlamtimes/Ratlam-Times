@@ -14,37 +14,52 @@ header {
     color: white;
     padding: 15px 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* नेविगेशन दोनों तरफ */
     align-items: center;
+    position: relative; /* लोगो के absolute पोजिशन के लिए बेस */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* हल्का शैडो */
 }
 
-.logo {
-    font-family: 'Playfair Display', serif; /* हेडलाइन्स के लिए सेरिफ़ फ़ॉन्ट */
-    font-size: 2.2em;
-    font-weight: 700;
-    color: #FFD700; /* सुनहरा/पीला (Gold/Yellow) */
-    text-decoration: none;
-    letter-spacing: 1px;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+/* नेविगेशन को दो हिस्सों में बांटना */
+nav.left-nav,
+nav.right-nav {
     display: flex;
+    gap: 20px;
 }
 
-nav ul li a {
+nav.left-nav a,
+nav.right-nav a {
     color: white;
     text-decoration: none;
-    padding: 0 18px;
+    padding: 0 8px;
     font-weight: 600;
-    transition: color 0.3s;
+    font-size: 15px;
+    transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #FFD700; /* होवर पर सुनहरा रंग */
+nav.left-nav a:hover,
+nav.right-nav a:hover {
+    color: #FFD700;
+}
+
+/* लोगो को बीच में रखने के लिए */
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #FFD700;
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    display: block;
 }
 
 /* 2. मुख्य सामग्री और लेआउट */
@@ -155,16 +170,22 @@ footer {
 /* 7. मोबाइल रिस्पॉन्सिवनेस (बेहतर लुक के लिए) */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        text-align: center;
-    }
-    nav ul {
         flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 10px;
+        justify-content: center; /* मोबाइल पर सब सेंटर */
+        padding: 15px 10px;
     }
-    nav ul li a {
-        padding: 5px 10px;
+    nav.left-nav,
+    nav.right-nav {
+        flex-basis: 100%;
+        justify-content: center;
+        margin: 8px 0;
+        gap: 15px;
+    }
+    .logo {
+        position: relative;
+        left: auto;
+        transform: none;
+        margin: 10px 0;
     }
     .story-grid {
         grid-template-columns: 1fr; /* मोबाइल पर सिंगल कॉलम */
