@@ -1,219 +1,128 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ratlam Times - रतलाम की ताज़ा खबरें</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            color: #222;
-        }
-
-        /* हेडर */
-        header {
-            background: #002244;
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative; /* लोगो absolute के लिए */
-        }
-
-        /* नेविगेशन को दो हिस्सों में बांटना */
-        nav.left-nav,
-        nav.right-nav {
-            display: flex;
-            gap: 15px;
-        }
-
-        nav.left-nav a,
-        nav.right-nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            padding: 0 8px;
-            transition: color 0.3s ease;
-        }
-
-        nav.left-nav a:hover,
-        nav.right-nav a:hover {
-            color: #FFD700;
-        }
-
-        /* लोगो बीच में */
-        .logo {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .logo img {
-            height: 70px; /* आप अपनी पसंद से बदल सकते हैं */
-            display: block;
-        }
-
-        /* कंटेनर */
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        h2 {
-            margin-top: 30px;
-            color: #002244;
-        }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .news-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-            border: 1px solid #ddd;
-        }
-
-        .news-card img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-        }
-
-        .news-card h3 {
-            margin: 10px;
-            font-size: 18px;
-            color: #002244;
-        }
-
-        .news-card p {
-            margin: 10px;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        .news-card a {
-            display: block;
-            background: #002244;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            padding: 8px;
-            border-top: 1px solid #001933;
-            font-size: 14px;
-        }
-
-        footer {
-            background: #222;
-            color: #ddd;
-            text-align: center;
-            padding: 12px;
-            margin-top: 35px;
-        }
-
-        /* मोबाइल रेस्पॉन्सिव */
-        @media (max-width: 768px) {
-            header {
-                flex-wrap: wrap;
-                justify-content: center;
-                padding: 15px 10px;
-                position: relative;
-            }
-            nav.left-nav,
-            nav.right-nav {
-                flex-basis: 100%;
-                justify-content: center;
-                margin: 10px 0;
-                gap: 15px;
-                order: 2;
-            }
-            .logo {
-                position: relative;
-                left: auto;
-                transform: none;
-                order: 1;
-                margin-bottom: 10px;
-            }
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratlam Times - रतलाम के विश्वसनीय समाचार</title>
+    <link rel="stylesheet" href="style.css"> 
+    </head>
 <body>
 
-<header>
-    <nav class="left-nav">
-        <a href="index.html">होम</a>
-        <a href="#">रतलाम</a>
-    </nav>
+    <div class="site-wrapper">
+        <header>
+            <div class="top-bar">
+                <div class="main-content top-bar-content">
+                    <span class="date-display" id="currentDateDisplay">Wednesday, December 10, 2025</span>
+                    <div class="social-links">
+                        <span>f | t | i | Q</span> 
+                    </div>
+                </div>
+            </div>
 
-    <a href="index.html" class="logo">
-        <img src="https://raw.githubusercontent.com/ratlamtimes/Ratlam-Times/main/LOGO.jpg" alt="Ratlam Times" />
-    </a>
+            <div class="logo-area">
+                <div class="main-content logo-container">
+                    <img src="RatlamTimes_Logo.png" alt="Ratlam Times Logo" class="header-logo"> 
+                </div>
+            </div>
+            
+            <nav id="mainNav" class="main-nav-bar">
+                <div class="main-content nav-content">
+                    <button id="menuToggle" class="mobile-menu-btn" aria-expanded="false" aria-controls="mainNav">☰</button> 
+                    <ul class="nav-list">
+                        <li><a href="#"><span class="home-icon">🏠</span> होम</a></li>
+                        <li><a href="#">ब्रेकिंग न्यूज़</a></li>
+                        <li><a href="#">रतलाम</a></li>
+                        <li><a href="#">मध्यप्रदेश</a></li>
+                        <li><a href="#">पॉलिटिक्स</a></li>
+                        <li><a href="#">सोशल न्यूज़</a></li>
+                        <li><a href="#">खेल</a></li>
+                    </ul>
+                    <button class="search-btn-nav">🔍</button>
+                </div>
+            </nav>
+        </header>
 
-    <nav class="right-nav">
-        <a href="#">राज्य</a>
-        <a href="#">रेलवे</a>
-        <a href="#">राजनीति</a>
-    </nav>
-</header>
+        <section class="trending-section">
+            <div class="main-content trending-content">
+                <span class="trending-label">TRENDING</span>
+                <div class="trending-scroll">
+                    ओवरलोड स्कूल वैन पलटी, 19 बच्चों की जान पर बन आई! | बड़ी कार्रवाई, अदालत ने सुनाई 2 साल की कठोर सजा
+                </div>
+            </div>
+        </section>
 
-<div class="container">
-    <h2>मुख्य खबरें</h2>
+        <div class="main-content primary-content-area">
+            
+            <section class="featured-container">
+                
+                <div class="main-feature-story">
+                    <a href="#" class="story-link">
+                        <img src="featured_image.jpg" alt="मुख्य खबर की तस्वीर">
+                        <div class="overlay-text">
+                            <span class="category">जावरा</span>
+                            <h2>ओवरलोड स्कूल वैन पलटी, 19 बच्चों की जान पर बन आई!</h2>
+                            <p class="date">December 10, 2025</p>
+                        </div>
+                    </a>
+                </div>
 
-    <div class="news-card" style="margin-bottom: 25px;">
-        <img src="https://raw.githubusercontent.com/ratlamtimes/Ratlam-Times/main/train.jpg" alt="Train Image">
-        <h3>शीतकालीन छुट्टियों में पुणे–सांगानेर स्पेशल ट्रेन रतलाम से होकर चलेगी</h3>
-        <p>
-            यात्रियों की बढ़ती भीड़ को देखते हुए रेलवे ने पुणे–सांगानेर के बीच स्पेशल ट्रेन चलाने का निर्णय लिया है।
-            यह ट्रेन रतलाम मंडल से होकर गुजरेगी और दोनों दिशाओं में तीन–तीन फेरे लगाएगी।
-        </p>
-        <a href="news.html">खबर पढ़ें →</a>
+                <div class="side-feature-stories">
+                    <div class="small-story-card">
+                        <a href="#">
+                            <img src="news_side_1.jpg" alt="साइड खबर 1">
+                            <div class="text-content">
+                                <span class="category">खबर</span>
+                                <h4>ज्ञान प्रबोधन स्कूल वाले...</h4>
+                                <span class="date">DECEMBER 9, 2025</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="small-story-card">
+                         <a href="#">
+                            <img src="news_side_2.jpg" alt="साइड खबर 2">
+                            <div class="text-content">
+                                <span class="category">खबर</span>
+                                <h4>ट्यूशनिया की परीक्षा...</h4>
+                                <span class="date">DECEMBER 8, 2025</span>
+                            </div>
+                        </a>
+                    </div>
+                    </div>
+            </section>
+
+            <section class="lower-news-grid">
+                <div class="story-card">
+                    <img src="news_low_1.jpg" alt="खबर 1">
+                    <div class="card-content">
+                        <span class="category">अपराध</span>
+                        <h3>रतलाम में यातायात नियमों का सख्ती से पालन</h3>
+                        <p>यातायात पुलिस ने शहर के प्रमुख चौराहों पर... <a href="#">और पढ़ें</a></p>
+                    </div>
+                </div>
+                 <div class="story-card">
+                    <img src="news_low_2.jpg" alt="खबर 2">
+                    <div class="card-content">
+                        <span class="category">व्यवसाय</span>
+                        <h3>स्थानीय व्यापार: स्टार्टअप्स को मिला नया प्रोत्साहन</h3>
+                        <p>चैंबर ऑफ कॉमर्स ने नए उद्यमियों के लिए... <a href="#">और पढ़ें</a></p>
+                    </div>
+                </div>
+                 <div class="story-card">
+                    <img src="news_low_3.jpg" alt="खबर 3">
+                    <div class="card-content">
+                        <span class="category">संपादकीय</span>
+                        <h3>इंकलाब डॉक्टर पर बड़ी कार्रवाई, अदालत ने सुनाई 2 साल की कठोर सजा</h3>
+                        <p>संपादकीय टीम ने इस महत्वपूर्ण मामले पर अपनी राय रखी है। <a href="#">और पढ़ें</a></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Ratlam Times. सर्वाधिकार सुरक्षित।</p>
+        </footer>
     </div>
-
-    <h2>ताज़ा खबरें</h2>
-
-    <div class="news-grid">
-        <div class="news-card">
-            <img src="news1.jpg" alt="News 1">
-            <h3>रतलाम में यातायात नियमों का सख्ती से पालन</h3>
-            <p>शहर के प्रमुख चौराहों पर पुलिस ने चेकिंग अभियान तेज किया...</p>
-            <a href="#">और पढ़ें +</a>
-        </div>
-
-        <div class="news-card">
-            <img src="news2.jpg" alt="News 2">
-            <h3>स्थानीय व्यापार: स्टार्टअप्स को नया प्रोत्साहन</h3>
-            <p>नए उद्यमियों के लिए योजनाओं की घोषणा की गई...</p>
-            <a href="#">और पढ़ें +</a>
-        </div>
-
-        <div class="news-card">
-            <img src="news3.jpg" alt="News 3">
-            <h3>क्रिकेट: रतलाम टीम ने जीता इंटर-सिटी टूर्नामेंट</h3>
-            <p>शानदार प्रदर्शन करते हुए रतलाम ने फाइनल में जीत दर्ज की...</p>
-            <a href="#">और पढ़ें +</a>
-        </div>
-    </div>
-</div>
-
-<footer>
-    © 2025 Ratlam Times | सभी अधिकार सुरक्षित
-</footer>
-
+    
+    <script src="script.js"></script> 
 </body>
 </html>
