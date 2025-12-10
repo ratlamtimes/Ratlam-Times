@@ -35,6 +35,40 @@ h2, h3, h4 { color: #002244; margin-top: 0; }
 .top-bar-content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.social-links {
+    display: flex; 
+    align-items: center;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    padding: 0 5px; 
+    /* Jaora Headlines जैसा हल्का विभाजक */
+    border-right: 1px solid rgba(255, 255, 255, 0.3); 
+    line-height: 1; 
+}
+
+/* अंतिम लिंक (YouTube) पर विभाजक हटा दें */
+.social-links a:last-of-type {
+    border-right: none;
+    padding-right: 0;
+}
+
+/* सर्च बटन का स्टाइल */
+.search-btn-top {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    margin-left: 10px;
+}
 }
 
 /* 2. लोगो क्षेत्र (Logo Area) */
