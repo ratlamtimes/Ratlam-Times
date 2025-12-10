@@ -1,193 +1,226 @@
-/* सामान्य रीसेट और फ़ॉन्ट सेटिंग */
+/* सामान्य स्टाइलिंग और रिसेट */
 body {
-    font-family: 'Arial', 'Segoe UI', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0; /* हल्का ग्रे बैकग्राउंड */
-    color: #333;
-    line-height: 1.6; /* पढ़ने में आसानी के लिए लाइन स्पेसिंग */
+    background-color: #f0f0f0;
+    line-height: 1.6;
 }
-
-/* 1. हेडर (Header) स्टाइलिंग */
-header {
-    background-color: #002244; /* गहरा नीला */
+.main-content {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 15px;
+}
+a { text-decoration: none; color: inherit; }
+h2, h3, h4 { color: #002244; margin-top: 0; }
+.category {
+    background-color: #e74c3c; /* लाल रंग */
     color: white;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between; /* नेविगेशन दोनों तरफ */
-    align-items: center;
-    position: relative; /* लोगो के absolute पोजिशन के लिए बेस */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* हल्का शैडो */
+    padding: 3px 8px;
+    font-size: 0.75em;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    border-radius: 2px;
 }
 
-/* नेविगेशन को दो हिस्सों में बांटना */
-nav.left-nav,
-nav.right-nav {
+/* 1. ऊपरी पट्टी (Top Bar) */
+.top-bar {
+    /* नीले से लाल फेड */
+    background: linear-gradient(to right, #002244, #e74c3c); 
+    color: white;
+    font-size: 0.8em;
+    padding: 5px 0;
+}
+.top-bar-content {
     display: flex;
+    justify-content: space-between;
+}
+
+/* 2. लोगो क्षेत्र (Logo Area) */
+.logo-area {
+    padding: 15px 0;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+}
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-logo {
+    max-width: 380px; /* लोगो को केंद्र में, उपयुक्त आकार */
+    height: auto;
+    display: block;
+}
+
+/* 3. नेविगेशन बार (Navigation Bar) */
+.main-nav-bar {
+    /* नीले से लाल ग्रेडिएंट */
+    background-image: linear-gradient(to right, #004488, #e74c3c); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.nav-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-grow: 1; 
+}
+.nav-list li a {
+    color: white;
+    padding: 15px 12px;
+    display: block;
+    font-weight: 500;
+}
+.search-btn-nav, .mobile-menu-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    padding: 0 15px;
+    cursor: pointer;
+}
+.mobile-menu-btn { display: none; } /* बड़े स्क्रीन पर छिपाएँ */
+
+/* 4. ट्रेंडिंग न्यूज़ सेक्शन */
+.trending-section {
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+    font-size: 0.9em;
+}
+.trending-content {
+    display: flex;
+    align-items: center;
+}
+.trending-label {
+    background-color: #002244; /* नीला बैकग्राउंड */
+    color: white;
+    padding: 5px 10px;
+    margin-right: 15px;
+    font-weight: bold;
+}
+.trending-scroll {
+    overflow: hidden;
+    white-space: nowrap;
+    /* JS से स्क्रॉलिंग इफ़ेक्ट लागू होगा */
+}
+
+/* 5. मुख्य सामग्री ग्रिड (Featured Content Grid) */
+.primary-content-area {
+    margin-top: 25px;
+}
+
+.featured-container {
+    display: grid;
+    /* 2/3 और 1/3 विभाजन */
+    grid-template-columns: 2fr 1fr; 
     gap: 20px;
 }
 
-nav.left-nav a,
-nav.right-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 0 8px;
-    font-weight: 600;
-    font-size: 15px;
-    transition: color 0.3s ease;
-}
-
-nav.left-nav a:hover,
-nav.right-nav a:hover {
-    color: #FFD700;
-}
-
-/* लोगो को बीच में रखने के लिए */
-.logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2em;
-    font-weight: 700;
-    color: #FFD700;
-    text-decoration: none;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    height: 50px;
-    display: block;
-}
-
-/* 2. मुख्य सामग्री और लेआउट */
-.main-content {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 20px auto;
-}
-
-/* 3. ब्रेकिंग न्यूज़ स्टाइलिंग */
-.breaking-news {
-    background-color: #ffffff;
-    padding: 12px 20px;
-    margin-bottom: 30px;
-    border-left: 6px solid #e74c3c; /* ब्रेकिंग के लिए लाल रंग का इस्तेमाल */
-    font-weight: bold;
-    font-size: 1.1em;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-/* 4. मुख्य स्टोरी स्टाइलिंग */
-.featured-story {
-    margin-bottom: 40px;
-    background-color: white;
-    padding: 20px;
+/* बड़ी फीचर स्टोरी (बायाँ 2/3 भाग) */
+.main-feature-story {
+    position: relative;
+    overflow: hidden;
     border-radius: 4px;
-    border: 1px solid #ddd;
 }
-
-.featured-story h2 {
-    color: #002244;
-    font-family: 'Playfair Display', serif;
-    margin-top: 0;
-    font-size: 2em;
-}
-
-.featured-story img {
-    max-height: 400px;
+.main-feature-story img {
+    width: 100%;
+    height: 450px; 
     object-fit: cover;
-    margin-bottom: 15px;
-    border-radius: 4px;
+    filter: brightness(0.8);
+}
+.overlay-text {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    color: white;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+    width: 100%;
+    box-sizing: border-box;
+}
+.overlay-text h2 {
+    color: white;
+    font-size: 2em;
+    margin: 5px 0 10px;
+}
+.overlay-text .date {
+    font-size: 0.8em;
+    color: #ccc;
 }
 
-/* 5. ग्रिड लेआउट (समाचार कार्ड) */
-h2 {
+/* साइड फीचर स्टोरीज (दायाँ 1/3 भाग) */
+.side-feature-stories {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.small-story-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    display: flex;
+    overflow: hidden;
+}
+.small-story-card img {
+    width: 40%;
+    height: 120px;
+    object-fit: cover;
+}
+.small-story-card .text-content {
+    width: 60%;
+    padding: 10px;
+}
+.small-story-card h4 {
+    font-size: 1em;
+    margin: 5px 0 0;
     color: #002244;
-    border-bottom: 3px solid #FFD700;
-    padding-bottom: 5px;
-    margin-bottom: 25px;
+}
+.small-story-card .date {
+    font-size: 0.75em;
+    color: #999;
 }
 
-.story-grid {
+/* 6. निचले समाचारों का ग्रिड (Lower News Grid) */
+.lower-news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* रिस्पॉन्सिव 3 कॉलम */
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
 }
-
 .story-card {
     background-color: white;
     border: 1px solid #e0e0e0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     border-radius: 4px;
-    overflow: hidden; /* इमेज को कार्ड के अंदर रखने के लिए */
+    overflow: hidden;
 }
-
-.story-card:hover {
-    transform: translateY(-5px); /* होवर पर हल्का ऊपर उठाना */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-}
-
 .story-card img {
     width: 100%;
-    height: 200px; /* इमेज की निश्चित ऊँचाई */
+    height: 200px;
     object-fit: cover;
-    display: block;
+}
+.card-content {
+    padding: 15px;
 }
 
-.story-card h3 {
-    color: #002244;
-    padding: 10px 15px 5px;
-    font-size: 1.25em;
-    margin: 0;
-}
-
-.story-card p {
-    padding: 0 15px 15px;
-    margin: 0;
-}
-
-.story-card a {
-    color: #1a73e8; /* लिंक के लिए नीला रंग */
-    text-decoration: none;
-    font-weight: 600;
-    display: block;
-    padding: 0 15px 15px;
-}
-
-/* 6. फुटर (Footer) स्टाइलिंग */
-footer {
-    background-color: #333;
-    color: #ccc;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-}
-
-/* 7. मोबाइल रिस्पॉन्सिवनेस (बेहतर लुक के लिए) */
+/* 7. मोबाइल रिस्पॉन्सिवनेस */
 @media (max-width: 768px) {
-    header {
-        flex-wrap: wrap;
-        justify-content: center; /* मोबाइल पर सब सेंटर */
-        padding: 15px 10px;
-    }
-    nav.left-nav,
-    nav.right-nav {
-        flex-basis: 100%;
-        justify-content: center;
-        margin: 8px 0;
-        gap: 15px;
-    }
-    .logo {
-        position: relative;
-        left: auto;
-        transform: none;
-        margin: 10px 0;
-    }
-    .story-grid {
+    .featured-container {
         grid-template-columns: 1fr; /* मोबाइल पर सिंगल कॉलम */
     }
+    .lower-news-grid {
+        grid-template-columns: 1fr; /* मोबाइल पर सिंगल कॉलम */
+    }
+    .main-feature-story img {
+        height: 300px;
+    }
+    .mobile-menu-btn { display: block; } /* मोबाइल पर मेनू बटन दिखाएँ */
+    .nav-list { display: none; } /* मेनू लिस्ट छिपाएँ */
+    /* JS द्वारा active क्लास जोड़ने पर nav-list को दिखाने के लिए CSS जोड़ें */
 }
