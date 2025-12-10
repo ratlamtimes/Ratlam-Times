@@ -1,57 +1,86 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // 1. **ब्रेकिंग न्यूज़ स्क्रोलर (Breaking News Scroller)**
-    // मान लीजिए कि आपके HTML में ब्रेकिंग न्यूज़ सेक्शन की ID 'breakingNews' है
-    const breakingNews = document.getElementById('breakingNews');
-    if (breakingNews) {
-        // यह CSS मार्की प्रभाव को JavaScript से सिमुलेट करता है
-        let scrollPosition = 0;
-        const scrollSpeed = 0.5; // स्क्रॉल की गति (पिक्सेल प्रति फ्रेम)
+    // 1. **स्वचालित तिथि और वर्ष अपडेट (Automatic Date and Year Update)**
+    
+    const currentDateDisplay = document.getElementById('currentDateDisplay');
+    const currentYearSpan = document.getElementById('currentYear');
 
-        function scrollNews() {
-            // यदि न्यूज़ को HTML में रैप किया गया है:
-            // breakingNews.scrollLeft += scrollSpeed;
-            
-            // यदि HTML में न्यूज़ को एक ही लाइन में रखा गया है, तो यह CSS-आधारित स्क्रॉलिंग के लिए तैयार किया जाता है
-            // यहाँ हम सादगी के लिए केवल एक टाइमर सेट करते हैं
-            // (वास्तविक स्क्रोलिंग के लिए आपको HTML संरचना बदलनी होगी, जैसे कि कई हेडलाइनें)
-            console.log("Breaking news scrolling is active.");
-        }
-        
-        // एक अधिक सामान्य और स्थिर तरीका:
-        setInterval(() => {
-            const breakingNewsText = breakingNews.querySelector('span');
-            if (breakingNewsText) {
-                // यह सुनिश्चित करता है कि ब्रेकिंग न्यूज़ सेक्शन में <span> टैग हो
-                // यह उदाहरण कार्यान्वयन पर निर्भर करता है
-            }
-        }, 50);
+    const now = new Date();
+    
+    // ऊपरी पट्टी में तिथि को अपडेट करना
+    if (currentDateDisplay) {
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        currentDateDisplay.textContent = now.toLocaleDateString('hi-IN', options);
+    }
+
+    // फुटर में वर्ष को अपडेट करना
+    if (currentYearSpan) {
+        currentYearSpan.textContent = now.getFullYear();
     }
     
-    // ---
+    // -----------------------------------------------------
 
     // 2. **मोबाइल नेविगेशन टॉगल (Mobile Navigation Toggle)**
-    // मान लीजिए कि आपके पास मेनू को खोलने के लिए एक बटन (ID='menuToggle') और नेविगेशन (ID='mainNav') है।
+    
     const menuToggle = document.getElementById('menuToggle');
-    const mainNav = document.getElementById('mainNav');
+    const mainNavList = document.querySelector('.nav-list'); // UL element
 
-    if (menuToggle && mainNav) {
+    if (menuToggle && mainNavList) {
+        // मेनू खोलने/बंद करने के लिए बटन पर क्लिक लिसनर
         menuToggle.addEventListener('click', function() {
-            // 'active' क्लास जोड़ें या हटाएँ (जो CSS में मेनू को दिखाता/छिपाता है)
-            mainNav.classList.toggle('active'); 
-            // बटन पर 'aria-expanded' को टॉगल करना एक्सेसिबिलिटी (पहुँच) के लिए महत्वपूर्ण है
+            // 'active' क्लास जोड़ें या हटाएँ (जो CSS में मेनू को दिखाता है)
+            mainNavList.classList.toggle('active'); 
+            
+            // एक्सेसिबिलिटी (पहुँच) के लिए aria-expanded को टॉगल करना
             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
             menuToggle.setAttribute('aria-expanded', !isExpanded);
         });
     }
 
-    // ---
+    // -----------------------------------------------------
+
+    // 3. **ट्रेंडिंग न्यूज़ स्क्रोलर (Trending News Scroller)**
     
-    // 3. **स्वचालित वर्ष अपडेट (Automatic Year Update for Footer)**
-    // मान लीजिए कि आपके फुटर में एक स्पैन टैग (ID='currentYear') है
-    const currentYearSpan = document.getElementById('currentYear');
-    if (currentYearSpan) {
-        const currentYear = new Date().getFullYear();
-        currentYearSpan.textContent = currentYear;
+    const trendingScroll = document.querySelector('.trending-scroll');
+    if (trendingScroll) {
+        let scrollPosition = 0;
+        const scrollSpeed = 0.5; // स्क्रॉल की गति (पिक्सेल प्रति फ्रेम)
+        
+        // सामग्री की वास्तविक चौड़ाई (content width)
+        const contentWidth = trendingScroll.scrollWidth;
+        // कंटेनर की चौड़ाई (container width)
+        const containerWidth = trendingScroll.clientWidth;
+
+        // स्क्रॉलिंग तभी करें जब सामग्री कंटेनर से बड़ी हो
+        if (contentWidth > containerWidth) {
+            
+            function animateScroll() {
+                // स्क्रॉल को आगे बढ़ाएँ
+                scrollPosition += scrollSpeed;
+                
+                // अगर स्क्रॉल अंत तक पहुँच जाए, तो उसे वापस शुरुआत में सेट करें
+                if (scrollPosition >= contentWidth - containerWidth) {
+                    scrollPosition = 0; // या -containerWidth, कंटेंट को तुरंत वापस लाने के लिए
+                }
+                
+                // स्क्रॉल को लागू करें
+                trendingScroll.scrollLeft = scrollPosition;
+                
+                // अगले फ्रेम के लिए फिर से कॉल करें
+                requestAnimationFrame(animateScroll);
+            }
+            
+            // एनीमेशन शुरू करें
+            requestAnimationFrame(animateScroll);
+
+            // माउस ओवर होने पर स्क्रॉलिंग रोकना
+            trendingScroll.addEventListener('mouseenter', () => {
+                scrollSpeed = 0;
+            });
+            // माउस हटने पर स्क्रॉलिंग फिर से शुरू करना
+            trendingScroll.addEventListener('mouseleave', () => {
+                scrollSpeed = 0.5;
+            });
+        }
     }
 });
